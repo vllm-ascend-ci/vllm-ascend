@@ -1,0 +1,14 @@
+[
+  {
+    "test": "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py",
+    "cards_required": 2
+  },
+  {
+    "test": "tests/e2e/pull_request/two_card/test_gemma4.py",
+    "cards_required": 2
+  },
+  {
+    "test": "tests/e2e/pull_request/two_card/test_prefix_caching.py",
+    "cards_required": 2
+  }
+]

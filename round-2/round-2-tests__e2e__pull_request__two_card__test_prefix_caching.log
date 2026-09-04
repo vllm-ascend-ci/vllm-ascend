@@ -1,0 +1,558 @@
+[2026-09-04 11:12:10] [INFO] get env TORCHINDUCTOR_CACHE_DIR = /tmp/torchinductor_root
+[2026-09-04 11:12:10] [INFO] get env VLLM_USE_BREAKABLE_CUDAGRAPH = 0
+[2026-09-04 11:12:12] [INFO] Patched Eagle3LlamaForCausalLM and Eagle3DeepseekV2ForCausalLM __init__ to use get_total_num_hidden_layers() for target_layer_num.
+/usr/local/python3.12.13/lib/python3.12/site-packages/pytest_asyncio/plugin.py:247: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+[2026-09-04 11:12:12.139063][UC][W] Current platform npu does not have '_pytestfixturefunction' attribute. [30145,30145][interface.py:1145,__getattr__]
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.12.13, pytest-8.3.2, pluggy-1.6.0 -- /__w/vllm-benchmarks/vllm-benchmarks/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /__w/vllm-benchmarks/vllm-benchmarks
+configfile: pyproject.toml
+plugins: xdist-3.6.1, mock-3.15.1, cov-7.1.0, anyio-4.15.0, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+[1mcollecting ... [0mcollected 2 items
+
+tests/e2e/pull_request/two_card/test_prefix_caching.py::test_models_prefix_cache_tp2[50-Qwen/Qwen3-8B] 2026-09-04 11:12:12,209 - 30145 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:12:12.218567][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [30145,30145][__init__.py:109,_wrapper]
+[2026-09-04 11:12:12.232434][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [30145,30145][__init__.py:109,_wrapper]
+2026-09-04 11:12:12,241 - modelscope - WARNING - We can not confirm the cached file is for revision: master
+[2026-09-04 11:12:12.242014][UC][I] HF_HUB_OFFLINE is True, replace model_id [Qwen/Qwen3-8B] to model_path [/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B] [30145,30145][arg_utils.py:821,__post_init__]
+[2026-09-04 11:12:12.528824][UC][I] non-default args: {'trust_remote_code': True, 'max_model_len': 2048, 'cudagraph_capture_sizes': [1, 2, 4, 8], 'tensor_parallel_size': 2, 'block_size': 16, 'gpu_memory_utilization': 0.7, 'disable_log_stats': True, 'enable_chunked_prefill': True, 'model': '/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B'} [30145,30145][api_utils.py:286,log_non_default_args]
+[2026-09-04 11:12:12.549384][UC][I] Resolved architecture: Qwen3ForCausalLM [30145,30145][model.py:684,__post_init__]
+[2026-09-04 11:12:12.549639][UC][I] Using max model len 2048 [30145,30145][model.py:2017,get_and_verify_max_len]
+[2026-09-04 11:12:12.550120][UC][I] Chunked prefill is enabled with max_num_batched_tokens=8192. [30145,30145][scheduler.py:242,__post_init__]
+[2026-09-04 11:12:12.555820][UC][I] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']) [30145,30145][kernel.py:310,set_platform_defaults]
+[2026-09-04 11:12:12.567599][UC][I] Enabled custom fusions: norm_quant, act_quant [30145,30145][compilation.py:329,log_enabled_passes]
+[2026-09-04 11:12:16] [INFO] get env VLLM_WORKER_MULTIPROC_METHOD = spawn
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+(EngineCore pid=31172) 2026-09-04 11:12:29,556 - 31172 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:12:29.568136][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [31172,31172][__init__.py:109,_wrapper]
+[2026-09-04 11:12:29.756795][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [31172,31172][__init__.py:109,_wrapper]
+[2026-09-04 11:12:29.757390][UC][I] Initializing a V1 LLM engine (v0.1.dev1+g41ae917c1) with config: model='/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B', speculative_config=None, tokenizer='/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=2048, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=npu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'vllm_ascend.compilation.compiler_interface.AscendCompiler', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update', 'vllm::mla_forward', 'vllm::dsa_forward'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 8, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto') [31172,31172][core.py:123,__init__]
+[2026-09-04 11:12:29.781520][UC][I] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.0.8.166 (local), world_size=2, local_world_size=2 [31172,31172][multiproc_executor.py:153,_init_executor]
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+2026-09-04 11:12:41,568 - 32678 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+2026-09-04 11:12:41,649 - 32660 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:12:42.805043][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [32678,32678][__init__.py:109,_wrapper]
+[2026-09-04 11:12:42.879987][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [32660,32660][__init__.py:109,_wrapper]
+[2026-09-04 11:12:42.989923][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [32678,32678][__init__.py:109,_wrapper]
+[2026-09-04 11:12:43.063295][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [32660,32660][__init__.py:109,_wrapper]
+[2026-09-04 11:12:46.071819][UC][I] world_size=2 rank=1 local_rank=1 distributed_init_method=file:///tmp/vllm_dist_71616d26b9fc4a51978d9aeb6ba82c73 backend=hccl [32678,32678][parallel_state.py:1638,init_distributed_environment]
+[2026-09-04 11:12:46.138265][UC][I] world_size=2 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_71616d26b9fc4a51978d9aeb6ba82c73 backend=hccl [32660,32660][parallel_state.py:1638,init_distributed_environment]
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[2026-09-04 11:12:46.209256][UC][I] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank N/A, EPLB rank N/A [32678,32678][parallel_state.py:1982,initialize_model_parallel]
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[2026-09-04 11:12:46.245244][UC][I] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A [32660,32660][parallel_state.py:1982,initialize_model_parallel]
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[rank0]:[W904 11:12:46.873395564 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank1]:[W904 11:12:46.877854571 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[2026-09-04 11:12:47.383550][UC][I] Using OOT custom backend for compilation. [32660,32660][compilation.py:1101,init_backend]
+[2026-09-04 11:12:47.385844][UC][I] Using OOT custom backend for compilation. [32678,32678][compilation.py:1101,init_backend]
+[2026-09-04 11:12:47.408271][UC][I] Using OOT custom backend for compilation. [32660,32660][compilation.py:1101,init_backend]
+[2026-09-04 11:12:47.410301][UC][I] Using OOT custom backend for compilation. [32678,32678][compilation.py:1101,init_backend]
+[2026-09-04 11:12:47.467687][UC][I] Filesystem type for checkpoints: NFS. Checkpoint size: 15.26 GiB. Available RAM: 894.93 GiB. [32660,32660][weight_utils.py:858,safetensors_weights_iterator]
+[2026-09-04 11:12:47.467734][UC][I] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes) [32660,32660][weight_utils.py:820,_prefetch_all_checkpoints]
+(Worker_TP0 pid=32660) 
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[2026-09-04 11:12:47.469439][UC][I] Filesystem type for checkpoints: NFS. Checkpoint size: 15.26 GiB. Available RAM: 894.93 GiB. [32678,32678][weight_utils.py:858,safetensors_weights_iterator]
+[2026-09-04 11:12:47.469485][UC][I] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes) [32678,32678][weight_utils.py:820,_prefetch_all_checkpoints]
+[2026-09-04 11:12:47.702229][UC][I] Prefetching checkpoint files: 10% (1/3) [32660,34473][weight_utils.py:792,prefetch_one]
+(Worker_TP0 pid=32660) 
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:01,  3.55it/s]
+[2026-09-04 11:12:48.100354][UC][I] Prefetching checkpoint files: 10% (1/2) [32678,34475][weight_utils.py:792,prefetch_one]
+(Worker_TP0 pid=32660) 
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:00<00:01,  2.94it/s]
+[2026-09-04 11:12:48.541018][UC][I] Prefetching checkpoint files: 20% (2/3) [32660,34473][weight_utils.py:792,prefetch_one]
+(Worker_TP0 pid=32660) 
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:01<00:00,  2.68it/s]
+[2026-09-04 11:12:48.648495][UC][I] Prefetching checkpoint files: 20% (2/2) [32678,34475][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:12:48.650615][UC][I] Prefetching checkpoint files into page cache finished in 1.18s [32678,34475][weight_utils.py:815,_run_prefetch]
+[2026-09-04 11:12:48.790258][UC][I] Loading weights took 1.32 seconds [32678,32678][default_loader.py:430,load_weights]
+[2026-09-04 11:12:48.834164][UC][I] Prefetching checkpoint files: 30% (3/3) [32660,34473][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:12:48.835700][UC][I] Prefetching checkpoint files into page cache finished in 1.37s [32660,34473][weight_utils.py:815,_run_prefetch]
+(Worker_TP0 pid=32660) 
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:01<00:00,  2.90it/s]
+(Worker_TP0 pid=32660) 
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:01<00:00,  3.48it/s]
+(Worker_TP0 pid=32660) 
+[2026-09-04 11:12:48.903591][UC][I] Loading weights took 1.44 seconds [32660,32660][default_loader.py:430,load_weights]
+[2026-09-04 11:12:50.046161][UC][I] Reducing Torch threads from 320 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override. [31172,31172][torch_utils.py:277,set_torch_threads_for_runtime]
+[2026-09-04 11:12:50.061085][UC][I] Using LBNHC KV cache layout. [31172,31172][utils.py:304,resolve_kv_cache_layout]
+[2026-09-04 11:12:51.669360][UC][I] Using cache directory: /root/.cache/vllm/torch_compile_cache/63175a9f74/rank_0_0/backbone for vLLM's torch.compile [32660,32660][backends.py:1094,__call__]
+[2026-09-04 11:12:51.671936][UC][I] Dynamo bytecode transform time: 1.20 s [32660,32660][backends.py:1155,__call__]
+[2026-09-04 11:12:51.770612][UC][I] Using cache directory: /root/.cache/vllm/torch_compile_cache/63175a9f74/rank_1_0/backbone for vLLM's torch.compile [32678,32678][backends.py:1094,__call__]
+[2026-09-04 11:12:51.773354][UC][I] Dynamo bytecode transform time: 1.24 s [32678,32678][backends.py:1155,__call__]
+[2026-09-04 11:13:02.457700][UC][I] Compiling a graph for compile range (1, 8192) takes 9.49 s [32678,32678][backends.py:393,compile]
+[2026-09-04 11:13:02.470912][UC][I] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/3cd04c3627328b484d421d03024c5785aafee65c0c287a46c56417f5bf3f4090/rank_1_0/model [32678,32678][decorators.py:313,_try_load_aot_compiled_fn]
+[2026-09-04 11:13:02.471004][UC][I] torch.compile took 11.94 s in total [32678,32678][monitor.py:53,monitor_torch_compile]
+[2026-09-04 11:13:02.636687][UC][I] Compiling a graph for compile range (1, 8192) takes 9.94 s [32660,32660][backends.py:393,compile]
+[2026-09-04 11:13:02.649957][UC][I] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/3cd04c3627328b484d421d03024c5785aafee65c0c287a46c56417f5bf3f4090/rank_0_0/model [32660,32660][decorators.py:313,_try_load_aot_compiled_fn]
+[2026-09-04 11:13:02.650005][UC][I] torch.compile took 12.18 s in total [32660,32660][monitor.py:53,monitor_torch_compile]
+[2026-09-04 11:13:03.360547][UC][I] Initial profiling/warmup run took 0.71 s [32660,32660][monitor.py:81,monitor_profiling_run]
+[2026-09-04 11:13:03.459879][UC][I] Initial profiling/warmup run took 0.99 s [32678,32678][monitor.py:81,monitor_profiling_run]
+[2026-09-04 11:13:04.905264][UC][I] GPU KV cache size: 499,200 tokens, Maximum concurrency for 2,048 tokens per request: 243.75x [31172,31172][kv_cache_utils.py:1879,update_kv_cache_capacity]
+[2026-09-04 11:13:06.768498][UC][I] Rank 1: Torch profiler disabled for CUDA graph capture [32678,32678][gpu_model_runner.py:6992,capture_model]
+[2026-09-04 11:13:06.770825][UC][I] Rank 0: Torch profiler disabled for CUDA graph capture [32660,32660][gpu_model_runner.py:6992,capture_model]
+(Worker_TP0 pid=32660) 
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 1/4 [00:00<00:01,  2.08it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  50%|█████     | 2/4 [00:00<00:00,  2.22it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▌  | 3/4 [00:01<00:00,  2.27it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 4/4 [00:01<00:00,  2.28it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 4/4 [00:01<00:00,  2.25it/s]
+(Worker_TP0 pid=32660) 
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (decode, FULL):  25%|██▌       | 1/4 [00:00<00:00,  4.39it/s]
+Capturing CUDA graphs (decode, FULL):  50%|█████     | 2/4 [00:00<00:00,  5.09it/s]
+Capturing CUDA graphs (decode, FULL):  75%|███████▌  | 3/4 [00:00<00:00,  5.10it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00,  5.33it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00,  5.17it/s]
+[2026-09-04 11:13:10.068873][UC][I] Graph capturing finished in 3 secs, took 0.32 GiB [32678,32678][gpu_model_runner.py:7038,capture_model]
+[2026-09-04 11:13:10.143910][UC][I] Graph capturing finished in 3 secs, took 0.32 GiB [32660,32660][gpu_model_runner.py:7038,capture_model]
+[2026-09-04 11:13:11.886221][UC][I] init engine (profile, create kv cache, warmup model) took 21.84 s (compilation: 12.18 s) [31172,31172][core.py:361,_initialize_kv_caches]
+[2026-09-04 11:13:12.695636][UC][I] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']) [31172,31172][kernel.py:310,set_platform_defaults]
+[2026-09-04 11:13:12.890025][UC][I] Enabled custom fusions: norm_quant, act_quant [31172,31172][compilation.py:329,log_enabled_passes]
+[2026-09-04 11:13:13.333158][UC][I] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this. [30145,30145][hf.py:547,_log_chat_template_content_format]
+
+Rendering prompts:   0%|          | 0/2 [00:00<?, ?it/s]
+Rendering prompts: 100%|██████████| 2/2 [00:00<00:00, 60.16it/s]
+
+Processed prompts:   0%|          | 0/2 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+Processed prompts:  50%|█████     | 1/2 [00:00<00:00,  1.34it/s, est. speed input: 2156.91 toks/s, output: 66.82 toks/s]
+Processed prompts: 100%|██████████| 2/2 [00:00<00:00,  1.34it/s, est. speed input: 4171.00 toks/s, output: 129.21 toks/s]
+Processed prompts: 100%|██████████| 2/2 [00:00<00:00,  2.58it/s, est. speed input: 4171.00 toks/s, output: 129.21 toks/s]
+[2026-09-04 11:13:14.180928][UC][I] [shutdown] MPClient: start timeout=default [30145,30145][core_client.py:689,shutdown]
+[2026-09-04 11:13:14.180959][UC][I] [shutdown] MPClient: stopping engine manager [30145,30145][core_client.py:691,shutdown]
+[2026-09-04 11:13:14.181082][UC][I] [shutdown] Process manager: send sigterm to process EngineCore [30145,30145][utils.py:615,shutdown]
+[2026-09-04 11:13:14.181203][UC][I] [shutdown] EngineCore: trigger received signal=SIGTERM [31172,31172][core.py:1344,signal_handler]
+[2026-09-04 11:13:14.181530][UC][I] [shutdown] EngineCore: start mode=abort timeout=0s [31172,31172][core.py:1495,_handle_shutdown]
+[2026-09-04 11:13:14.182164][UC][I] [shutdown] EngineCore: request processing complete; starting resource teardown [31172,31172][core.py:1526,_handle_shutdown]
+[2026-09-04 11:13:14.182192][UC][I] [shutdown] EngineCore: exiting busy loop [31172,31172][core.py:1357,run_engine_core]
+[2026-09-04 11:13:14.182354][UC][I] Parent process exited, terminating worker queues [32660,34489][multiproc_executor.py:836,death_pipe_monitor]
+[2026-09-04 11:13:14.182396][UC][I] [shutdown] Executor: waiting for worker exit count=2 [31172,31172][multiproc_executor.py:472,_ensure_worker_termination]
+[2026-09-04 11:13:14.182422][UC][I] Parent process exited, terminating worker queues [32678,34497][multiproc_executor.py:836,death_pipe_monitor]
+[2026-09-04 11:13:19.186322][UC][W] [shutdown] Process manager: force killing remaining processes count=1 [30145,30145][utils.py:635,shutdown]
+[2026-09-04 11:13:19.186368][UC][W] [shutdown] Process manager: force killing remaining process EngineCore pid 31172 [30145,30145][utils.py:640,shutdown]
+[2026-09-04 11:13:19.187299][UC][W] [shutdown] Executor: workers still running after grace period; sending SIGTERM count=2 [31172,31172][multiproc_executor.py:484,_ensure_worker_termination]
+[2026-09-04 11:13:19.219445][UC][I] [shutdown] MPClient: engine manager stopped [30145,30145][core_client.py:693,shutdown]
+[2026-09-04 11:13:19.219483][UC][I] [shutdown] MPClient: cleaning up background resources [30145,30145][core_client.py:694,shutdown]
+[2026-09-04 11:13:19.219807][UC][I] [shutdown] MPClient: complete [30145,30145][core_client.py:696,shutdown]
+2026-09-04 11:13:19,635 - modelscope - WARNING - We can not confirm the cached file is for revision: master
+[2026-09-04 11:13:19.635801][UC][I] HF_HUB_OFFLINE is True, replace model_id [Qwen/Qwen3-8B] to model_path [/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B] [30145,30145][arg_utils.py:821,__post_init__]
+[2026-09-04 11:13:19.636772][UC][I] non-default args: {'trust_remote_code': True, 'max_model_len': 2048, 'cudagraph_capture_sizes': [1, 2, 4, 8], 'tensor_parallel_size': 2, 'block_size': 16, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.7, 'disable_log_stats': True, 'enable_chunked_prefill': True, 'model': '/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B'} [30145,30145][api_utils.py:286,log_non_default_args]
+[2026-09-04 11:13:19.642829][UC][I] Resolved architecture: Qwen3ForCausalLM [30145,30145][model.py:684,__post_init__]
+[2026-09-04 11:13:19.642925][UC][I] Using max model len 2048 [30145,30145][model.py:2017,get_and_verify_max_len]
+[2026-09-04 11:13:19.644102][UC][I] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']) [30145,30145][kernel.py:310,set_platform_defaults]
+[2026-09-04 11:13:19] [INFO] get env PYTORCH_NPU_ALLOC_CONF = expandable_segments:True
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+(EngineCore pid=37453) 2026-09-04 11:13:35,513 - 37453 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:13:35.523751][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [37453,37453][__init__.py:109,_wrapper]
+[2026-09-04 11:13:35.708616][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [37453,37453][__init__.py:109,_wrapper]
+[2026-09-04 11:13:35.709167][UC][I] Initializing a V1 LLM engine (v0.1.dev1+g41ae917c1) with config: model='/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B', speculative_config=None, tokenizer='/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=2048, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=npu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/root/.cache/modelscope/hub/models/Qwen/Qwen3-8B, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'vllm_ascend.compilation.compiler_interface.AscendCompiler', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update', 'vllm::mla_forward', 'vllm::dsa_forward'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 8, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto') [37453,37453][core.py:123,__init__]
+[2026-09-04 11:13:35.730062][UC][I] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.0.8.166 (local), world_size=2, local_world_size=2 [37453,37453][multiproc_executor.py:153,_init_executor]
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+2026-09-04 11:13:47,463 - 38124 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+2026-09-04 11:13:47,974 - 38125 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:13:48.733502][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [38124,38124][__init__.py:109,_wrapper]
+[2026-09-04 11:13:48.916327][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [38124,38124][__init__.py:109,_wrapper]
+[2026-09-04 11:13:49.233110][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [38125,38125][__init__.py:109,_wrapper]
+[2026-09-04 11:13:49.420774][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [38125,38125][__init__.py:109,_wrapper]
+[2026-09-04 11:13:52.009109][UC][I] world_size=2 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_1004fe81a0814e6b824f443be23dc12b backend=hccl [38124,38124][parallel_state.py:1638,init_distributed_environment]
+[2026-09-04 11:13:52.649047][UC][I] world_size=2 rank=1 local_rank=1 distributed_init_method=file:///tmp/vllm_dist_1004fe81a0814e6b824f443be23dc12b backend=hccl [38125,38125][parallel_state.py:1638,init_distributed_environment]
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[2026-09-04 11:13:52.745638][UC][I] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A [38124,38124][parallel_state.py:1982,initialize_model_parallel]
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[2026-09-04 11:13:52.749394][UC][I] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank N/A, EPLB rank N/A [38125,38125][parallel_state.py:1982,initialize_model_parallel]
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[rank1]:[W904 11:13:52.379327724 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank0]:[W904 11:13:52.382293395 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[2026-09-04 11:13:53.908261][UC][I] Using OOT custom backend for compilation. [38125,38125][compilation.py:1101,init_backend]
+[2026-09-04 11:13:53.927431][UC][I] Using OOT custom backend for compilation. [38124,38124][compilation.py:1101,init_backend]
+[2026-09-04 11:13:53.934669][UC][I] Using OOT custom backend for compilation. [38125,38125][compilation.py:1101,init_backend]
+[2026-09-04 11:13:53.951773][UC][I] Using OOT custom backend for compilation. [38124,38124][compilation.py:1101,init_backend]
+[2026-09-04 11:13:53.999634][UC][I] Filesystem type for checkpoints: NFS. Checkpoint size: 15.26 GiB. Available RAM: 893.70 GiB. [38125,38125][weight_utils.py:858,safetensors_weights_iterator]
+[2026-09-04 11:13:53.999683][UC][I] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes) [38125,38125][weight_utils.py:820,_prefetch_all_checkpoints]
+[2026-09-04 11:13:54.012638][UC][I] Filesystem type for checkpoints: NFS. Checkpoint size: 15.26 GiB. Available RAM: 893.67 GiB. [38124,38124][weight_utils.py:858,safetensors_weights_iterator]
+[2026-09-04 11:13:54.012703][UC][I] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes) [38124,38124][weight_utils.py:820,_prefetch_all_checkpoints]
+(Worker_TP0 pid=38124) 
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[2026-09-04 11:13:54.283398][UC][I] Prefetching checkpoint files: 10% (1/3) [38124,39985][weight_utils.py:792,prefetch_one]
+(Worker_TP0 pid=38124) 
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:01,  3.50it/s]
+(Worker_TP0 pid=38124) 
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:00<00:00,  3.03it/s]
+[2026-09-04 11:13:54.708498][UC][I] Prefetching checkpoint files: 10% (1/2) [38125,39982][weight_utils.py:792,prefetch_one]
+(Worker_TP0 pid=38124) 
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:00<00:00,  3.12it/s]
+[2026-09-04 11:13:55.021308][UC][I] Prefetching checkpoint files: 20% (2/3) [38124,39985][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:13:55.236456][UC][I] Prefetching checkpoint files: 20% (2/2) [38125,39982][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:13:55.238061][UC][I] Prefetching checkpoint files into page cache finished in 1.24s [38125,39982][weight_utils.py:815,_run_prefetch]
+[2026-09-04 11:13:55.259117][UC][I] Prefetching checkpoint files: 30% (3/3) [38124,39985][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:13:55.260573][UC][I] Prefetching checkpoint files into page cache finished in 1.25s [38124,39985][weight_utils.py:815,_run_prefetch]
+(Worker_TP0 pid=38124) 
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:01<00:00,  3.23it/s]
+(Worker_TP0 pid=38124) 
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:01<00:00,  3.82it/s]
+(Worker_TP0 pid=38124) 
+[2026-09-04 11:13:55.323723][UC][I] Loading weights took 1.31 seconds [38124,38124][default_loader.py:430,load_weights]
+[2026-09-04 11:13:55.363462][UC][I] Loading weights took 1.36 seconds [38125,38125][default_loader.py:430,load_weights]
+[2026-09-04 11:13:56.882045][UC][I] Reducing Torch threads from 320 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override. [37453,37453][torch_utils.py:277,set_torch_threads_for_runtime]
+[2026-09-04 11:13:56.891073][UC][I] Using LBNHC KV cache layout. [37453,37453][utils.py:304,resolve_kv_cache_layout]
+[2026-09-04 11:13:58.418505][UC][I] Using cache directory: /root/.cache/vllm/torch_compile_cache/63175a9f74/rank_0_0/backbone for vLLM's torch.compile [38124,38124][backends.py:1094,__call__]
+[2026-09-04 11:13:58.421054][UC][I] Dynamo bytecode transform time: 1.19 s [38124,38124][backends.py:1155,__call__]
+[2026-09-04 11:13:58.854231][UC][I] Using cache directory: /root/.cache/vllm/torch_compile_cache/63175a9f74/rank_1_0/backbone for vLLM's torch.compile [38125,38125][backends.py:1094,__call__]
+[2026-09-04 11:13:58.856964][UC][I] Dynamo bytecode transform time: 1.28 s [38125,38125][backends.py:1155,__call__]
+[2026-09-04 11:14:09.379258][UC][I] Compiling a graph for compile range (1, 8192) takes 9.95 s [38124,38124][backends.py:393,compile]
+[2026-09-04 11:14:09.393099][UC][I] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/3cd04c3627328b484d421d03024c5785aafee65c0c287a46c56417f5bf3f4090/rank_0_0/model [38124,38124][decorators.py:313,_try_load_aot_compiled_fn]
+[2026-09-04 11:14:09.393153][UC][I] torch.compile took 12.16 s in total [38124,38124][monitor.py:53,monitor_torch_compile]
+[2026-09-04 11:14:10.138267][UC][I] Compiling a graph for compile range (1, 8192) takes 10.13 s [38125,38125][backends.py:393,compile]
+[2026-09-04 11:14:10.154449][UC][I] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/3cd04c3627328b484d421d03024c5785aafee65c0c287a46c56417f5bf3f4090/rank_1_0/model [38125,38125][decorators.py:313,_try_load_aot_compiled_fn]
+[2026-09-04 11:14:10.154502][UC][I] torch.compile took 12.57 s in total [38125,38125][monitor.py:53,monitor_torch_compile]
+[2026-09-04 11:14:10.953489][UC][I] Initial profiling/warmup run took 1.56 s [38124,38124][monitor.py:81,monitor_profiling_run]
+[2026-09-04 11:14:10.960570][UC][I] Initial profiling/warmup run took 0.81 s [38125,38125][monitor.py:81,monitor_profiling_run]
+[2026-09-04 11:14:12.370938][UC][I] GPU KV cache size: 499,200 tokens, Maximum concurrency for 2,048 tokens per request: 243.75x [37453,37453][kv_cache_utils.py:1879,update_kv_cache_capacity]
+[2026-09-04 11:14:14.228231][UC][I] Rank 1: Torch profiler disabled for CUDA graph capture [38125,38125][gpu_model_runner.py:6992,capture_model]
+[2026-09-04 11:14:14.228537][UC][I] Rank 0: Torch profiler disabled for CUDA graph capture [38124,38124][gpu_model_runner.py:6992,capture_model]
+(Worker_TP0 pid=38124) 
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 1/4 [00:00<00:01,  2.14it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  50%|█████     | 2/4 [00:00<00:00,  2.07it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▌  | 3/4 [00:01<00:00,  2.10it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 4/4 [00:01<00:00,  2.13it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 4/4 [00:01<00:00,  2.12it/s]
+(Worker_TP0 pid=38124) 
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (decode, FULL):  25%|██▌       | 1/4 [00:00<00:00,  4.34it/s]
+Capturing CUDA graphs (decode, FULL):  50%|█████     | 2/4 [00:00<00:00,  4.99it/s]
+Capturing CUDA graphs (decode, FULL):  75%|███████▌  | 3/4 [00:00<00:00,  5.12it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00,  5.21it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00,  5.09it/s]
+[2026-09-04 11:14:17.767655][UC][I] Graph capturing finished in 4 secs, took 0.32 GiB [38124,38124][gpu_model_runner.py:7038,capture_model]
+[2026-09-04 11:14:17.798804][UC][I] Graph capturing finished in 4 secs, took 0.32 GiB [38125,38125][gpu_model_runner.py:7038,capture_model]
+[2026-09-04 11:14:19.511722][UC][I] init engine (profile, create kv cache, warmup model) took 22.63 s (compilation: 12.57 s) [37453,37453][core.py:361,_initialize_kv_caches]
+[2026-09-04 11:14:20.325840][UC][I] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']) [37453,37453][kernel.py:310,set_platform_defaults]
+[2026-09-04 11:14:20.519779][UC][I] Enabled custom fusions: norm_quant, act_quant [37453,37453][compilation.py:329,log_enabled_passes]
+
+Rendering prompts:   0%|          | 0/2 [00:00<?, ?it/s]
+Rendering prompts: 100%|██████████| 2/2 [00:00<00:00, 215.07it/s]
+
+Processed prompts:   0%|          | 0/2 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+Processed prompts:  50%|█████     | 1/2 [00:00<00:00,  1.37it/s, est. speed input: 2211.87 toks/s, output: 68.52 toks/s]
+Processed prompts: 100%|██████████| 2/2 [00:00<00:00,  1.37it/s, est. speed input: 4274.59 toks/s, output: 132.42 toks/s]
+Processed prompts: 100%|██████████| 2/2 [00:00<00:00,  2.65it/s, est. speed input: 4274.59 toks/s, output: 132.42 toks/s]
+[2026-09-04 11:14:21.289166][UC][I] [shutdown] MPClient: start timeout=default [30145,30145][core_client.py:689,shutdown]
+[2026-09-04 11:14:21.289337][UC][I] [shutdown] Process manager: send sigterm to process EngineCore [30145,30145][utils.py:615,shutdown]
+[2026-09-04 11:14:21.289461][UC][I] [shutdown] EngineCore: trigger received signal=SIGTERM [37453,37453][core.py:1344,signal_handler]
+[2026-09-04 11:14:21.289757][UC][I] [shutdown] EngineCore: start mode=abort timeout=0s [37453,37453][core.py:1495,_handle_shutdown]
+[2026-09-04 11:14:21.290246][UC][I] [shutdown] EngineCore: request processing complete; starting resource teardown [37453,37453][core.py:1526,_handle_shutdown]
+[2026-09-04 11:14:21.290275][UC][I] [shutdown] EngineCore: exiting busy loop [37453,37453][core.py:1357,run_engine_core]
+[2026-09-04 11:14:21.290481][UC][I] Parent process exited, terminating worker queues [38124,39994][multiproc_executor.py:836,death_pipe_monitor]
+[2026-09-04 11:14:21.290602][UC][I] [shutdown] Executor: waiting for worker exit count=2 [37453,37453][multiproc_executor.py:472,_ensure_worker_termination]
+[2026-09-04 11:14:21.290627][UC][I] Parent process exited, terminating worker queues [38125,40002][multiproc_executor.py:836,death_pipe_monitor]
+[2026-09-04 11:14:26.294621][UC][W] [shutdown] Process manager: force killing remaining processes count=1 [30145,30145][utils.py:635,shutdown]
+[2026-09-04 11:14:26.294664][UC][W] [shutdown] Process manager: force killing remaining process EngineCore pid 37453 [30145,30145][utils.py:640,shutdown]
+[2026-09-04 11:14:26.295539][UC][W] [shutdown] Executor: workers still running after grace period; sending SIGTERM count=2 [37453,37453][multiproc_executor.py:484,_ensure_worker_termination]
+[32mPASSED[0m
+tests/e2e/pull_request/two_card/test_prefix_caching.py::test_models_prefix_cache_tp2[50-deepseek-ai/DeepSeek-V2-Lite-Chat] 2026-09-04 11:14:26,752 - modelscope - WARNING - We can not confirm the cached file is for revision: master
+[2026-09-04 11:14:26.752452][UC][I] HF_HUB_OFFLINE is True, replace model_id [deepseek-ai/DeepSeek-V2-Lite-Chat] to model_path [/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat] [30145,30145][arg_utils.py:821,__post_init__]
+[2026-09-04 11:14:26.752885][UC][I] non-default args: {'trust_remote_code': True, 'max_model_len': 2048, 'cudagraph_capture_sizes': [1, 2, 4, 8], 'tensor_parallel_size': 2, 'block_size': 16, 'gpu_memory_utilization': 0.7, 'disable_log_stats': True, 'enable_chunked_prefill': True, 'model': '/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat'} [30145,30145][api_utils.py:286,log_non_default_args]
+[2026-09-04 11:14:26.778982][UC][I] Resolved architecture: DeepseekV2ForCausalLM [30145,30145][model.py:684,__post_init__]
+[2026-09-04 11:14:26.779046][UC][I] Using max model len 2048 [30145,30145][model.py:2017,get_and_verify_max_len]
+[2026-09-04 11:14:26.780004][UC][I] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']) [30145,30145][kernel.py:310,set_platform_defaults]
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+(EngineCore pid=40857) 2026-09-04 11:14:41,231 - 40857 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:14:41.243357][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [40857,40857][__init__.py:109,_wrapper]
+[2026-09-04 11:14:41.442204][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [40857,40857][__init__.py:109,_wrapper]
+[2026-09-04 11:14:41.442796][UC][I] Initializing a V1 LLM engine (v0.1.dev1+g41ae917c1) with config: model='/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat', speculative_config=None, tokenizer='/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=2048, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=npu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'vllm_ascend.compilation.compiler_interface.AscendCompiler', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update', 'vllm::mla_forward', 'vllm::dsa_forward'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 8, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto') [40857,40857][core.py:123,__init__]
+[2026-09-04 11:14:41.469699][UC][I] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.0.8.166 (local), world_size=2, local_world_size=2 [40857,40857][multiproc_executor.py:153,_init_executor]
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+2026-09-04 11:14:53,058 - 41462 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+2026-09-04 11:14:53,261 - 41461 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:14:54.281230][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [41462,41462][__init__.py:109,_wrapper]
+[2026-09-04 11:14:54.460253][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [41462,41462][__init__.py:109,_wrapper]
+[2026-09-04 11:14:54.491474][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [41461,41461][__init__.py:109,_wrapper]
+[2026-09-04 11:14:54.670506][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [41461,41461][__init__.py:109,_wrapper]
+[2026-09-04 11:14:57.491941][UC][I] world_size=2 rank=1 local_rank=1 distributed_init_method=file:///tmp/vllm_dist_bf7342803c3d4de091e1981857198845 backend=hccl [41462,41462][parallel_state.py:1638,init_distributed_environment]
+[2026-09-04 11:14:57.699790][UC][I] world_size=2 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_bf7342803c3d4de091e1981857198845 backend=hccl [41461,41461][parallel_state.py:1638,init_distributed_environment]
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[2026-09-04 11:14:57.856328][UC][I] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0, EPLB rank N/A [41461,41461][parallel_state.py:1982,initialize_model_parallel]
+[2026-09-04 11:14:57.856327][UC][I] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank 1, EPLB rank N/A [41462,41462][parallel_state.py:1982,initialize_model_parallel]
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[rank1]:[W904 11:14:57.483313712 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank0]:[W904 11:14:57.492953993 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[2026-09-04 11:14:59.405276][UC][I] Using OOT custom backend for compilation. [41462,41462][compilation.py:1101,init_backend]
+[2026-09-04 11:14:59.425818][UC][I] Using OOT custom backend for compilation. [41461,41461][compilation.py:1101,init_backend]
+[2026-09-04 11:14:59.507700][UC][I] Filesystem type for checkpoints: NFS. Checkpoint size: 29.26 GiB. Available RAM: 891.67 GiB. [41462,41462][weight_utils.py:858,safetensors_weights_iterator]
+[2026-09-04 11:14:59.507748][UC][I] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes) [41462,41462][weight_utils.py:820,_prefetch_all_checkpoints]
+[2026-09-04 11:14:59.529025][UC][I] Filesystem type for checkpoints: NFS. Checkpoint size: 29.26 GiB. Available RAM: 891.64 GiB. [41461,41461][weight_utils.py:858,safetensors_weights_iterator]
+[2026-09-04 11:14:59.529088][UC][I] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes) [41461,41461][weight_utils.py:820,_prefetch_all_checkpoints]
+(Worker_TP0 pid=41461) 
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+[2026-09-04 11:15:00.014381][UC][I] Prefetching checkpoint files: 10% (1/2) [41462,42767][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:15:00.860784][UC][I] Prefetching checkpoint files: 10% (1/2) [41461,42770][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:15:00.981215][UC][I] Prefetching checkpoint files: 20% (2/2) [41462,42767][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:15:00.983854][UC][I] Prefetching checkpoint files into page cache finished in 1.47s [41462,42767][weight_utils.py:815,_run_prefetch]
+(Worker_TP0 pid=41461) 
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:05,  1.78s/it]
+[2026-09-04 11:15:01.784971][UC][I] Prefetching checkpoint files: 20% (2/2) [41461,42770][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:15:01.786886][UC][I] Prefetching checkpoint files into page cache finished in 2.26s [41461,42770][weight_utils.py:815,_run_prefetch]
+(Worker_TP0 pid=41461) 
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:03<00:03,  1.87s/it]
+(Worker_TP0 pid=41461) 
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:05<00:01,  1.93s/it]
+(Worker_TP0 pid=41461) 
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:07<00:00,  1.71s/it]
+(Worker_TP0 pid=41461) 
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:07<00:00,  1.77s/it]
+(Worker_TP0 pid=41461) 
+[2026-09-04 11:15:06.738977][UC][I] Loading weights took 7.21 seconds [41461,41461][default_loader.py:430,load_weights]
+[2026-09-04 11:15:07.231248][UC][I] Loading weights took 7.72 seconds [41462,41462][default_loader.py:430,load_weights]
+[2026-09-04 11:15:08.894147][UC][I] Reducing Torch threads from 320 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override. [40857,40857][torch_utils.py:277,set_torch_threads_for_runtime]
+[2026-09-04 11:15:08.904093][UC][I] Using LBNHC KV cache layout. [40857,40857][utils.py:304,resolve_kv_cache_layout]
+[2026-09-04 11:15:09.621965][UC][I] Using cache directory: /root/.cache/vllm/torch_compile_cache/4393543f08/rank_1_0/backbone for vLLM's torch.compile [41462,41462][backends.py:1094,__call__]
+[2026-09-04 11:15:09.624695][UC][I] Dynamo bytecode transform time: 0.40 s [41462,41462][backends.py:1155,__call__]
+[2026-09-04 11:15:09.880194][UC][I] Using cache directory: /root/.cache/vllm/torch_compile_cache/4393543f08/rank_0_0/backbone for vLLM's torch.compile [41461,41461][backends.py:1094,__call__]
+[2026-09-04 11:15:09.882882][UC][I] Dynamo bytecode transform time: 0.39 s [41461,41461][backends.py:1155,__call__]
+[2026-09-04 11:15:12.882061][UC][I] Compiling a graph for compile range (1, 8192) takes 2.61 s [41462,41462][backends.py:393,compile]
+[2026-09-04 11:15:12.889051][UC][I] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/184a0773c2e526fb10124b62540052090875d9eaac8765533bc5acf493562468/rank_1_0/model [41462,41462][decorators.py:313,_try_load_aot_compiled_fn]
+[2026-09-04 11:15:12.889118][UC][I] torch.compile took 3.66 s in total [41462,41462][monitor.py:53,monitor_torch_compile]
+[2026-09-04 11:15:13.104262][UC][I] Compiling a graph for compile range (1, 8192) takes 2.63 s [41461,41461][backends.py:393,compile]
+[2026-09-04 11:15:13.112868][UC][I] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/184a0773c2e526fb10124b62540052090875d9eaac8765533bc5acf493562468/rank_0_0/model [41461,41461][decorators.py:313,_try_load_aot_compiled_fn]
+[2026-09-04 11:15:13.112936][UC][I] torch.compile took 3.62 s in total [41461,41461][monitor.py:53,monitor_torch_compile]
+[2026-09-04 11:15:13.911165][UC][I] Initial profiling/warmup run took 0.80 s [41461,41461][monitor.py:81,monitor_profiling_run]
+[2026-09-04 11:15:13.981349][UC][I] Initial profiling/warmup run took 1.09 s [41462,41462][monitor.py:81,monitor_profiling_run]
+[2026-09-04 11:15:15.081937][UC][I] GPU KV cache size: 930,688 tokens, Maximum concurrency for 2,048 tokens per request: 454.44x [40857,40857][kv_cache_utils.py:1879,update_kv_cache_capacity]
+[2026-09-04 11:15:16.748739][UC][I] Rank 0: Torch profiler disabled for CUDA graph capture [41461,41461][gpu_model_runner.py:6992,capture_model]
+[2026-09-04 11:15:16.784180][UC][I] Rank 1: Torch profiler disabled for CUDA graph capture [41462,41462][gpu_model_runner.py:6992,capture_model]
+(Worker_TP0 pid=41461) 
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 1/4 [00:00<00:01,  2.69it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  50%|█████     | 2/4 [00:00<00:00,  2.78it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▌  | 3/4 [00:01<00:00,  2.86it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 4/4 [00:01<00:00,  2.74it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 4/4 [00:01<00:00,  2.76it/s]
+(Worker_TP0 pid=41461) 
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (decode, FULL):  25%|██▌       | 1/4 [00:00<00:00,  3.87it/s]
+Capturing CUDA graphs (decode, FULL):  50%|█████     | 2/4 [00:00<00:00,  4.39it/s]
+Capturing CUDA graphs (decode, FULL):  75%|███████▌  | 3/4 [00:00<00:00,  4.66it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00,  4.80it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00,  4.64it/s]
+[2026-09-04 11:15:20.088452][UC][I] Graph capturing finished in 3 secs, took 0.31 GiB [41461,41461][gpu_model_runner.py:7038,capture_model]
+[2026-09-04 11:15:20.222886][UC][I] Graph capturing finished in 3 secs, took 0.31 GiB [41462,41462][gpu_model_runner.py:7038,capture_model]
+[2026-09-04 11:15:21.835104][UC][I] init engine (profile, create kv cache, warmup model) took 12.94 s (compilation: 3.66 s) [40857,40857][core.py:361,_initialize_kv_caches]
+[2026-09-04 11:15:22.792464][UC][I] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']) [40857,40857][kernel.py:310,set_platform_defaults]
+[2026-09-04 11:15:22.987746][UC][I] Enabled custom fusions: norm_quant, act_quant [40857,40857][compilation.py:329,log_enabled_passes]
+
+Rendering prompts:   0%|          | 0/2 [00:00<?, ?it/s]
+Rendering prompts: 100%|██████████| 2/2 [00:00<00:00, 146.55it/s]
+
+Processed prompts:   0%|          | 0/2 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+Processed prompts:  50%|█████     | 1/2 [00:00<00:00,  3.52it/s, est. speed input: 6144.10 toks/s, output: 14.09 toks/s]
+Processed prompts: 100%|██████████| 2/2 [00:00<00:00,  3.52it/s, est. speed input: 11235.33 toks/s, output: 25.77 toks/s]
+Processed prompts: 100%|██████████| 2/2 [00:00<00:00,  6.44it/s, est. speed input: 11235.33 toks/s, output: 25.77 toks/s]
+[2026-09-04 11:15:23.911353][UC][I] [shutdown] MPClient: start timeout=default [30145,30145][core_client.py:689,shutdown]
+[2026-09-04 11:15:23.911498][UC][I] [shutdown] Process manager: send sigterm to process EngineCore [30145,30145][utils.py:615,shutdown]
+[2026-09-04 11:15:23.911572][UC][I] [shutdown] EngineCore: trigger received signal=SIGTERM [40857,40857][core.py:1344,signal_handler]
+[2026-09-04 11:15:23.920206][UC][I] [shutdown] EngineCore: start mode=abort timeout=0s [40857,40857][core.py:1495,_handle_shutdown]
+[2026-09-04 11:15:23.920312][UC][I] [shutdown] EngineCore: request processing complete; starting resource teardown [40857,40857][core.py:1526,_handle_shutdown]
+[2026-09-04 11:15:23.920332][UC][I] [shutdown] EngineCore: exiting busy loop [40857,40857][core.py:1357,run_engine_core]
+[2026-09-04 11:15:23.920551][UC][I] Parent process exited, terminating worker queues [41462,42788][multiproc_executor.py:836,death_pipe_monitor]
+[2026-09-04 11:15:23.920573][UC][I] Parent process exited, terminating worker queues [41461,42778][multiproc_executor.py:836,death_pipe_monitor]
+[2026-09-04 11:15:23.920622][UC][I] [shutdown] Executor: waiting for worker exit count=2 [40857,40857][multiproc_executor.py:472,_ensure_worker_termination]
+[2026-09-04 11:15:28.913754][UC][W] [shutdown] Process manager: force killing remaining processes count=1 [30145,30145][utils.py:635,shutdown]
+[2026-09-04 11:15:28.913795][UC][W] [shutdown] Process manager: force killing remaining process EngineCore pid 40857 [30145,30145][utils.py:640,shutdown]
+2026-09-04 11:15:29,353 - modelscope - WARNING - We can not confirm the cached file is for revision: master
+[2026-09-04 11:15:29.353881][UC][I] HF_HUB_OFFLINE is True, replace model_id [deepseek-ai/DeepSeek-V2-Lite-Chat] to model_path [/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat] [30145,30145][arg_utils.py:821,__post_init__]
+[2026-09-04 11:15:29.354317][UC][I] non-default args: {'trust_remote_code': True, 'max_model_len': 2048, 'cudagraph_capture_sizes': [1, 2, 4, 8], 'tensor_parallel_size': 2, 'block_size': 16, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.7, 'disable_log_stats': True, 'enable_chunked_prefill': True, 'model': '/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat'} [30145,30145][api_utils.py:286,log_non_default_args]
+[2026-09-04 11:15:29.365020][UC][I] Resolved architecture: DeepseekV2ForCausalLM [30145,30145][model.py:684,__post_init__]
+[2026-09-04 11:15:29.365082][UC][I] Using max model len 2048 [30145,30145][model.py:2017,get_and_verify_max_len]
+[2026-09-04 11:15:29.366055][UC][I] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']) [30145,30145][kernel.py:310,set_platform_defaults]
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+(EngineCore pid=42952) 2026-09-04 11:15:43,517 - 42952 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:15:43.527997][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [42952,42952][__init__.py:109,_wrapper]
+[2026-09-04 11:15:43.709056][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [42952,42952][__init__.py:109,_wrapper]
+[2026-09-04 11:15:43.709601][UC][I] Initializing a V1 LLM engine (v0.1.dev1+g41ae917c1) with config: model='/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat', speculative_config=None, tokenizer='/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=2048, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=npu, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=/root/.cache/modelscope/hub/models/deepseek-ai/DeepSeek-V2-Lite-Chat, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'vllm_ascend.compilation.compiler_interface.AscendCompiler', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update', 'vllm::mla_forward', 'vllm::dsa_forward'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 8, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto') [42952,42952][core.py:123,__init__]
+[2026-09-04 11:15:43.729700][UC][I] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.0.8.166 (local), world_size=2, local_world_size=2 [42952,42952][multiproc_executor.py:153,_init_executor]
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+/usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+  from scipy.sparse import csr_array, issparse
+2026-09-04 11:15:56,016 - 43559 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+2026-09-04 11:15:56,218 - 43558 - ServiceProfiler - INFO - VLLM_USE_V1 not set, auto-detected via vLLM 0.1.dev1+g41ae917c1.empty: default 0
+[2026-09-04 11:15:57.260687][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [43559,43559][__init__.py:109,_wrapper]
+[2026-09-04 11:15:57.442438][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [43559,43559][__init__.py:109,_wrapper]
+[2026-09-04 11:15:57.469063][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader` [43558,43558][__init__.py:109,_wrapper]
+[2026-09-04 11:15:57.649503][UC][I] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork` [43558,43558][__init__.py:109,_wrapper]
+[2026-09-04 11:16:00.539190][UC][I] world_size=2 rank=1 local_rank=1 distributed_init_method=file:///tmp/vllm_dist_37054014f49046e5b8ba34638922090d backend=hccl [43559,43559][parallel_state.py:1638,init_distributed_environment]
+[2026-09-04 11:16:00.734837][UC][I] world_size=2 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_37054014f49046e5b8ba34638922090d backend=hccl [43558,43558][parallel_state.py:1638,init_distributed_environment]
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[2026-09-04 11:16:00.833062][UC][I] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank 1, EPLB rank N/A [43559,43559][parallel_state.py:1982,initialize_model_parallel]
+[2026-09-04 11:16:00.833062][UC][I] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0, EPLB rank N/A [43558,43558][parallel_state.py:1982,initialize_model_parallel]
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[rank0]:[W904 11:16:00.460986685 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank1]:[W904 11:16:00.464332840 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[2026-09-04 11:16:02.414472][UC][I] Using OOT custom backend for compilation. [43558,43558][compilation.py:1101,init_backend]
+[2026-09-04 11:16:02.465364][UC][I] Using OOT custom backend for compilation. [43559,43559][compilation.py:1101,init_backend]
+[2026-09-04 11:16:02.522209][UC][I] Filesystem type for checkpoints: NFS. Checkpoint size: 29.26 GiB. Available RAM: 902.66 GiB. [43558,43558][weight_utils.py:858,safetensors_weights_iterator]
+[2026-09-04 11:16:02.522267][UC][I] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes) [43558,43558][weight_utils.py:820,_prefetch_all_checkpoints]
+(Worker_TP0 pid=43558) 
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+[2026-09-04 11:16:02.571334][UC][I] Filesystem type for checkpoints: NFS. Checkpoint size: 29.26 GiB. Available RAM: 902.63 GiB. [43559,43559][weight_utils.py:858,safetensors_weights_iterator]
+[2026-09-04 11:16:02.571413][UC][I] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes) [43559,43559][weight_utils.py:820,_prefetch_all_checkpoints]
+[2026-09-04 11:16:03.088419][UC][I] Prefetching checkpoint files: 10% (1/2) [43559,44867][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:16:03.774117][UC][I] Prefetching checkpoint files: 10% (1/2) [43558,44864][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:16:03.926057][UC][I] Prefetching checkpoint files: 20% (2/2) [43559,44867][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:16:03.927480][UC][I] Prefetching checkpoint files into page cache finished in 1.36s [43559,44867][weight_utils.py:815,_run_prefetch]
+(Worker_TP0 pid=43558) 
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:05,  1.73s/it]
+[2026-09-04 11:16:04.673096][UC][I] Prefetching checkpoint files: 20% (2/2) [43558,44864][weight_utils.py:792,prefetch_one]
+[2026-09-04 11:16:04.674380][UC][I] Prefetching checkpoint files into page cache finished in 2.15s [43558,44864][weight_utils.py:815,_run_prefetch]
+(Worker_TP0 pid=43558) 
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:03<00:03,  1.74s/it]
+(Worker_TP0 pid=43558) 
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:05<00:01,  1.76s/it]
+(Worker_TP0 pid=43558) 
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:06<00:00,  1.60s/it]
+(Worker_TP0 pid=43558) 
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:06<00:00,  1.65s/it]
+(Worker_TP0 pid=43558) 
+[2026-09-04 11:16:09.136593][UC][I] Loading weights took 6.62 seconds [43558,43558][default_loader.py:430,load_weights]
+[2026-09-04 11:16:10.421144][UC][I] Loading weights took 7.85 seconds [43559,43559][default_loader.py:430,load_weights]
+[2026-09-04 11:16:12.026401][UC][I] Reducing Torch threads from 320 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override. [42952,42952][torch_utils.py:277,set_torch_threads_for_runtime]
+[2026-09-04 11:16:12.039743][UC][I] Using LBNHC KV cache layout. [42952,42952][utils.py:304,resolve_kv_cache_layout]
+[2026-09-04 11:16:12.737142][UC][I] Using cache directory: /root/.cache/vllm/torch_compile_cache/4393543f08/rank_0_0/backbone for vLLM's torch.compile [43558,43558][backends.py:1094,__call__]
+[2026-09-04 11:16:12.740070][UC][I] Dynamo bytecode transform time: 0.38 s [43558,43558][backends.py:1155,__call__]
+[2026-09-04 11:16:12.871477][UC][I] Using cache directory: /root/.cache/vllm/torch_compile_cache/4393543f08/rank_1_0/backbone for vLLM's torch.compile [43559,43559][backends.py:1094,__call__]
+[2026-09-04 11:16:12.874269][UC][I] Dynamo bytecode transform time: 0.39 s [43559,43559][backends.py:1155,__call__]
+[2026-09-04 11:16:15.923755][UC][I] Compiling a graph for compile range (1, 8192) takes 2.66 s [43558,43558][backends.py:393,compile]
+[2026-09-04 11:16:15.929941][UC][I] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/184a0773c2e526fb10124b62540052090875d9eaac8765533bc5acf493562468/rank_0_0/model [43558,43558][decorators.py:313,_try_load_aot_compiled_fn]
+[2026-09-04 11:16:15.929987][UC][I] torch.compile took 3.57 s in total [43558,43558][monitor.py:53,monitor_torch_compile]
+[2026-09-04 11:16:16.366754][UC][I] Compiling a graph for compile range (1, 8192) takes 2.84 s [43559,43559][backends.py:393,compile]
+[2026-09-04 11:16:16.373386][UC][I] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/184a0773c2e526fb10124b62540052090875d9eaac8765533bc5acf493562468/rank_1_0/model [43559,43559][decorators.py:313,_try_load_aot_compiled_fn]
+[2026-09-04 11:16:16.373437][UC][I] torch.compile took 3.89 s in total [43559,43559][monitor.py:53,monitor_torch_compile]
+[2026-09-04 11:16:17.099032][UC][I] Initial profiling/warmup run took 1.17 s [43558,43558][monitor.py:81,monitor_profiling_run]
+[2026-09-04 11:16:17.255977][UC][I] Initial profiling/warmup run took 0.88 s [43559,43559][monitor.py:81,monitor_profiling_run]
+[2026-09-04 11:16:18.428569][UC][I] GPU KV cache size: 930,688 tokens, Maximum concurrency for 2,048 tokens per request: 454.44x [42952,42952][kv_cache_utils.py:1879,update_kv_cache_capacity]
+[2026-09-04 11:16:20.038232][UC][I] Rank 0: Torch profiler disabled for CUDA graph capture [43558,43558][gpu_model_runner.py:6992,capture_model]
+[2026-09-04 11:16:20.064094][UC][I] Rank 1: Torch profiler disabled for CUDA graph capture [43559,43559][gpu_model_runner.py:6992,capture_model]
+(Worker_TP0 pid=43558) 
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 1/4 [00:00<00:01,  1.66it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  50%|█████     | 2/4 [00:00<00:00,  2.08it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▌  | 3/4 [00:01<00:00,  2.37it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 4/4 [00:01<00:00,  2.52it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 4/4 [00:01<00:00,  2.34it/s]
+(Worker_TP0 pid=43558) 
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]
+Capturing CUDA graphs (decode, FULL):  25%|██▌       | 1/4 [00:00<00:00,  3.61it/s]
+Capturing CUDA graphs (decode, FULL):  50%|█████     | 2/4 [00:00<00:00,  4.38it/s]
+Capturing CUDA graphs (decode, FULL):  75%|███████▌  | 3/4 [00:00<00:00,  4.72it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00,  4.83it/s]
+Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00,  4.63it/s]
+[2026-09-04 11:16:23.275376][UC][I] Graph capturing finished in 3 secs, took 0.31 GiB [43558,43558][gpu_model_runner.py:7038,capture_model]
+[2026-09-04 11:16:23.406112][UC][I] Graph capturing finished in 3 secs, took 0.31 GiB [43559,43559][gpu_model_runner.py:7038,capture_model]
+[2026-09-04 11:16:25.017180][UC][I] init engine (profile, create kv cache, warmup model) took 12.99 s (compilation: 3.89 s) [42952,42952][core.py:361,_initialize_kv_caches]
+[2026-09-04 11:16:25.945885][UC][I] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']) [42952,42952][kernel.py:310,set_platform_defaults]
+[2026-09-04 11:16:26.141191][UC][I] Enabled custom fusions: norm_quant, act_quant [42952,42952][compilation.py:329,log_enabled_passes]
+
+Rendering prompts:   0%|          | 0/2 [00:00<?, ?it/s]
+Rendering prompts: 100%|██████████| 2/2 [00:00<00:00, 127.59it/s]
+
+Processed prompts:   0%|          | 0/2 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+Processed prompts:  50%|█████     | 1/2 [00:00<00:00,  4.22it/s, est. speed input: 7361.88 toks/s, output: 16.88 toks/s]
+Processed prompts: 100%|██████████| 2/2 [00:00<00:00,  4.22it/s, est. speed input: 13411.76 toks/s, output: 30.76 toks/s]
+Processed prompts: 100%|██████████| 2/2 [00:00<00:00,  7.69it/s, est. speed input: 13411.76 toks/s, output: 30.76 toks/s]
+[2026-09-04 11:16:26.420580][UC][I] [shutdown] MPClient: start timeout=default [30145,30145][core_client.py:689,shutdown]
+[2026-09-04 11:16:26.420745][UC][I] [shutdown] Process manager: send sigterm to process EngineCore [30145,30145][utils.py:615,shutdown]
+[2026-09-04 11:16:26.420814][UC][I] [shutdown] EngineCore: trigger received signal=SIGTERM [42952,42952][core.py:1344,signal_handler]
+[2026-09-04 11:16:26.430277][UC][I] [shutdown] EngineCore: start mode=abort timeout=0s [42952,42952][core.py:1495,_handle_shutdown]
+[2026-09-04 11:16:26.430384][UC][I] [shutdown] EngineCore: request processing complete; starting resource teardown [42952,42952][core.py:1526,_handle_shutdown]
+[2026-09-04 11:16:26.430403][UC][I] [shutdown] EngineCore: exiting busy loop [42952,42952][core.py:1357,run_engine_core]
+[2026-09-04 11:16:26.430525][UC][I] Parent process exited, terminating worker queues [43558,44875][multiproc_executor.py:836,death_pipe_monitor]
+[2026-09-04 11:16:26.430616][UC][I] Parent process exited, terminating worker queues [43559,44883][multiproc_executor.py:836,death_pipe_monitor]
+[2026-09-04 11:16:26.430707][UC][I] [shutdown] Executor: waiting for worker exit count=2 [42952,42952][multiproc_executor.py:472,_ensure_worker_termination]
+[2026-09-04 11:16:31.426096][UC][W] [shutdown] Process manager: force killing remaining processes count=1 [30145,30145][utils.py:635,shutdown]
+[2026-09-04 11:16:31.426153][UC][W] [shutdown] Process manager: force killing remaining process EngineCore pid 42952 [30145,30145][utils.py:640,shutdown]
+[32mPASSED[0m[INFO] Model cache cleared
+
+
+[33m=============================== warnings summary ===============================[0m
+../../../usr/local/python3.12.13/lib/python3.12/site-packages/torch/jit/_script.py:362: 14 warnings
+  /usr/local/python3.12.13/lib/python3.12/site-packages/torch/jit/_script.py:362: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+../../../usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14
+  /usr/local/python3.12.13/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:14: UserWarning: A NumPy version >=1.22.4 and <2.3.0 is required for this version of SciPy (detected version 2.3.5)
+    from scipy.sparse import csr_array, issparse
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[33m================== [32m2 passed[0m, [33m[1m15 warnings[0m[33m in 263.40s (0:04:23)[0m[33m ==================[0m
+/usr/local/python3.12.13/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 4 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

@@ -1,0 +1,29 @@
+{
+  "failed_test_files": [
+    "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py"
+  ],
+  "failed_test_cases": [
+    "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py::test_deepseek_multistream_moe_tp2"
+  ],
+  "failed_test_files_count": 1,
+  "failed_test_cases_count": 1,
+  "code_bugs": [],
+  "env_flakes": [
+    {
+      "error_type": "RuntimeError",
+      "error_message": "Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+      "category": "Environment Flake",
+      "context": [
+        "FAILED tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py::test_deepseek_multistream_moe_tp2 - RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}"
+      ],
+      "failed_test_files": [
+        "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py"
+      ],
+      "failed_test_cases": [
+        "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py::test_deepseek_multistream_moe_tp2"
+      ]
+    }
+  ],
+  "code_bugs_count": 0,
+  "env_flakes_count": 1
+}

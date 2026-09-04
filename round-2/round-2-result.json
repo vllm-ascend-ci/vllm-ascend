@@ -1,0 +1,78 @@
+{
+  "step_id": 0,
+  "round": 2,
+  "label": "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py+tests/e2e/pull_request/two_card/test_gemma4.py+tests/e2e/pull_request/two_card/test_prefix_caching.py",
+  "tests": [
+    "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py",
+    "tests/e2e/pull_request/two_card/test_gemma4.py",
+    "tests/e2e/pull_request/two_card/test_prefix_caching.py"
+  ],
+  "ci_result": "env_flake_pass",
+  "passed": false,
+  "can_commit": true,
+  "requires_fix": false,
+  "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests",
+  "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests",
+  "total_cards": 8,
+  "sequential": false,
+  "remote": null,
+  "elapsed_s": 297.8,
+  "rounds": [
+    {
+      "round": 1,
+      "tests": [
+        "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py",
+        "tests/e2e/pull_request/two_card/test_gemma4.py",
+        "tests/e2e/pull_request/two_card/test_prefix_caching.py"
+      ],
+      "cards_used": 6,
+      "total_cards": 8,
+      "elapsed_s": 297.8
+    }
+  ],
+  "suite_results": {
+    "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py": {
+      "test": "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py",
+      "cards_required": 2,
+      "run_suite_exit_code": 1,
+      "ci_result": "env_flake_pass",
+      "summary_error": null,
+      "code_bugs_count": 0,
+      "env_flakes_count": 1,
+      "failed_test_files_count": 1,
+      "failed_test_cases_count": 1,
+      "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__two_card__test_deepseek_multistream_moe.log",
+      "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__two_card__test_deepseek_multistream_moe-summary.json"
+    },
+    "tests/e2e/pull_request/two_card/test_gemma4.py": {
+      "test": "tests/e2e/pull_request/two_card/test_gemma4.py",
+      "cards_required": 2,
+      "run_suite_exit_code": 0,
+      "ci_result": "passed",
+      "summary_error": null,
+      "code_bugs_count": 0,
+      "env_flakes_count": 0,
+      "failed_test_files_count": 0,
+      "failed_test_cases_count": 0,
+      "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__two_card__test_gemma4.log",
+      "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__two_card__test_gemma4-summary.json"
+    },
+    "tests/e2e/pull_request/two_card/test_prefix_caching.py": {
+      "test": "tests/e2e/pull_request/two_card/test_prefix_caching.py",
+      "cards_required": 2,
+      "run_suite_exit_code": 0,
+      "ci_result": "passed",
+      "summary_error": null,
+      "code_bugs_count": 0,
+      "env_flakes_count": 0,
+      "failed_test_files_count": 0,
+      "failed_test_cases_count": 0,
+      "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__two_card__test_prefix_caching.log",
+      "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__two_card__test_prefix_caching-summary.json"
+    }
+  },
+  "code_bugs_count": 0,
+  "env_flakes_count": 1,
+  "failed_test_files_count": 1,
+  "failed_test_cases_count": 1
+}
