@@ -1,0 +1,23 @@
+[
+  {
+    "runner": "linux-aarch64-a2-1",
+    "image_tag": "9.1.0-910b-ubuntu22.04-py3.12",
+    "npu_type": "a2",
+    "num_npus": 1,
+    "tests": "tests/e2e/pull_request/one_card/test_qwen3_0_6b.py tests/e2e/pull_request/one_card/test_qwen3_8b_w8a8.py tests/e2e/pull_request/one_card/test_sampler.py tests/e2e/pull_request/one_card/test_vlm.py"
+  },
+  {
+    "runner": "linux-aarch64-a3-8-sh-001",
+    "image_tag": "9.1.0-a3-ubuntu22.04-py3.12",
+    "npu_type": "a3",
+    "num_npus": 2,
+    "tests": "tests/e2e/pull_request/two_card/test_deepseek_multistream_moe.py tests/e2e/pull_request/two_card/test_gemma4.py tests/e2e/pull_request/two_card/test_prefix_caching.py"
+  },
+  {
+    "runner": "linux-aarch64-310p-1",
+    "image_tag": "9.1.0-310p-ubuntu22.04-py3.12",
+    "npu_type": "310p",
+    "num_npus": 1,
+    "tests": "tests/e2e/pull_request/one_card/_310p/test_classification_310p.py tests/e2e/pull_request/one_card/_310p/test_dense_model_310p.py tests/e2e/pull_request/one_card/_310p/test_embedding_310p.py tests/e2e/pull_request/one_card/_310p/test_scoring_310p.py"
+  }
+]
