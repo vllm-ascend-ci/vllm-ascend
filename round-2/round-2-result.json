@@ -1,0 +1,117 @@
+{
+  "step_id": 0,
+  "round": 2,
+  "label": "tests/e2e/pull_request/one_card/test_vlm.py+tests/e2e/pull_request/one_card/test_qwen3_8b_w8a8.py+tests/e2e/pull_request/one_card/test_qwen3_0_6b.py+tests/e2e/pull_request/one_card/test_sampler.py",
+  "tests": [
+    "tests/e2e/pull_request/one_card/test_vlm.py",
+    "tests/e2e/pull_request/one_card/test_qwen3_8b_w8a8.py",
+    "tests/e2e/pull_request/one_card/test_qwen3_0_6b.py",
+    "tests/e2e/pull_request/one_card/test_sampler.py"
+  ],
+  "ci_result": "passed",
+  "passed": true,
+  "can_commit": true,
+  "requires_fix": false,
+  "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests",
+  "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests",
+  "total_cards": 1,
+  "sequential": false,
+  "remote": null,
+  "elapsed_s": 966.4,
+  "rounds": [
+    {
+      "round": 1,
+      "tests": [
+        "tests/e2e/pull_request/one_card/test_vlm.py"
+      ],
+      "cards_used": 1,
+      "total_cards": 1,
+      "elapsed_s": 415.0
+    },
+    {
+      "round": 2,
+      "tests": [
+        "tests/e2e/pull_request/one_card/test_qwen3_8b_w8a8.py"
+      ],
+      "cards_used": 1,
+      "total_cards": 1,
+      "elapsed_s": 232.4
+    },
+    {
+      "round": 3,
+      "tests": [
+        "tests/e2e/pull_request/one_card/test_qwen3_0_6b.py"
+      ],
+      "cards_used": 1,
+      "total_cards": 1,
+      "elapsed_s": 196.6
+    },
+    {
+      "round": 4,
+      "tests": [
+        "tests/e2e/pull_request/one_card/test_sampler.py"
+      ],
+      "cards_used": 1,
+      "total_cards": 1,
+      "elapsed_s": 122.5
+    }
+  ],
+  "suite_results": {
+    "tests/e2e/pull_request/one_card/test_vlm.py": {
+      "test": "tests/e2e/pull_request/one_card/test_vlm.py",
+      "cards_required": 1,
+      "run_suite_exit_code": 0,
+      "ci_result": "passed",
+      "summary_error": null,
+      "code_bugs_count": 0,
+      "env_flakes_count": 0,
+      "failed_test_files_count": 0,
+      "failed_test_cases_count": 0,
+      "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__one_card__test_vlm.log",
+      "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__one_card__test_vlm-summary.json"
+    },
+    "tests/e2e/pull_request/one_card/test_qwen3_8b_w8a8.py": {
+      "test": "tests/e2e/pull_request/one_card/test_qwen3_8b_w8a8.py",
+      "cards_required": 1,
+      "run_suite_exit_code": 0,
+      "ci_result": "passed",
+      "summary_error": null,
+      "code_bugs_count": 0,
+      "env_flakes_count": 0,
+      "failed_test_files_count": 0,
+      "failed_test_cases_count": 0,
+      "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__one_card__test_qwen3_8b_w8a8.log",
+      "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__one_card__test_qwen3_8b_w8a8-summary.json"
+    },
+    "tests/e2e/pull_request/one_card/test_qwen3_0_6b.py": {
+      "test": "tests/e2e/pull_request/one_card/test_qwen3_0_6b.py",
+      "cards_required": 1,
+      "run_suite_exit_code": 0,
+      "ci_result": "passed",
+      "summary_error": null,
+      "code_bugs_count": 0,
+      "env_flakes_count": 0,
+      "failed_test_files_count": 0,
+      "failed_test_cases_count": 0,
+      "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__one_card__test_qwen3_0_6b.log",
+      "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__one_card__test_qwen3_0_6b-summary.json"
+    },
+    "tests/e2e/pull_request/one_card/test_sampler.py": {
+      "test": "tests/e2e/pull_request/one_card/test_sampler.py",
+      "cards_required": 1,
+      "run_suite_exit_code": 0,
+      "ci_result": "passed",
+      "summary_error": null,
+      "code_bugs_count": 0,
+      "env_flakes_count": 0,
+      "failed_test_files_count": 0,
+      "failed_test_cases_count": 0,
+      "log_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__one_card__test_sampler.log",
+      "summary_path": "/__w/vllm-benchmarks/vllm-benchmarks/main2main-e2e-results/0/tests/round-2-tests__e2e__pull_request__one_card__test_sampler-summary.json"
+    }
+  },
+  "code_bugs_count": 0,
+  "env_flakes_count": 0,
+  "failed_test_files_count": 0,
+  "failed_test_cases_count": 0
+}

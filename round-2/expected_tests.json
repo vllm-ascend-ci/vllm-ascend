@@ -1,0 +1,18 @@
+[
+  {
+    "test": "tests/e2e/pull_request/one_card/test_qwen3_0_6b.py",
+    "cards_required": 1
+  },
+  {
+    "test": "tests/e2e/pull_request/one_card/test_qwen3_8b_w8a8.py",
+    "cards_required": 1
+  },
+  {
+    "test": "tests/e2e/pull_request/one_card/test_sampler.py",
+    "cards_required": 1
+  },
+  {
+    "test": "tests/e2e/pull_request/one_card/test_vlm.py",
+    "cards_required": 1
+  }
+]
