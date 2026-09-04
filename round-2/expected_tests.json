@@ -1,0 +1,18 @@
+[
+  {
+    "test": "tests/e2e/pull_request/one_card/_310p/test_classification_310p.py",
+    "cards_required": 1
+  },
+  {
+    "test": "tests/e2e/pull_request/one_card/_310p/test_dense_model_310p.py",
+    "cards_required": 1
+  },
+  {
+    "test": "tests/e2e/pull_request/one_card/_310p/test_embedding_310p.py",
+    "cards_required": 1
+  },
+  {
+    "test": "tests/e2e/pull_request/one_card/_310p/test_scoring_310p.py",
+    "cards_required": 1
+  }
+]
